@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Hub & Career Guidance</title>
+    <!-- Modern Typography: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for a clean, modern look -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="ph-fill ph-student"></i>
+                <span>StudentHub</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="ph ph-compass"></i> Career Guidance</a></li>
+                <li><a href="#"><i class="ph ph-calendar-blank"></i> Schedules</a></li>
+                <li><a href="#"><i class="ph ph-books"></i> Resources</a></li>
+                <li><a href="#"><i class="ph ph-map-pin"></i> Campus Map</a></li>
+            </ul>
+            <div class="user-profile">
+                <div class="avatar">S</div>
+                <div class="info">
+                    <span class="name">Student</span>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <h1>Career Guidance Agent</h1>
+                <p>Find your ideal path after FSC, complete with university recommendations, scholarships, and free courses tailored to your interests.</p>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Input Form -->
+                <section class="card form-section" id="guidance-form-section">
+                    <h2>Tell us about yourself</h2>
+                    <form id="guidance-form">
+                        <div class="form-group">
+                            <label for="fsc_group">FSC Group</label>
+                            <select id="fsc_group" required>
+                                <option value="" disabled selected>Select your group</option>
+                                <option value="Pre-Engineering">Pre-Engineering</option>
+                                <option value="Pre-Medical">Pre-Medical</option>
+                                <option value="ICS">ICS (Computer Science)</option>
+                                <option value="I.Com">I.Com (Commerce)</option>
+                                <option value="FA">FA (Arts/Humanities)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fsc_marks">FSC Marks / Percentage</label>
+                            <input type="text" id="fsc_marks" placeholder="e.g., 85% or 950/1100" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">Preferred City</label>
+                            <input type="text" id="city" placeholder="e.g., Lahore, Karachi, Islamabad" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="interests">Interests & Hobbies</label>
+                            <textarea id="interests" rows="3" placeholder="What do you enjoy doing? e.g., Coding, design, writing, biology experiments..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="submit-btn">
+                            <span>Get My Roadmap</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="hidden">
+                    <div class="loader-container">
+                        <div class="spinner"></div>
+                        <p>Analyzing your profile and searching for the best opportunities...</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <section id="results-section" class="hidden">
+                    
+                    <div class="results-header">
+                        <h2>Your Career Roadmap</h2>
+                        <button class="btn-secondary" id="reset-btn"><i class="ph ph-arrow-counter-clockwise"></i> Start Over</button>
+                    </div>
+                    
+                    <div class="roadmap-summary card">
+                        <h3><i class="ph ph-lightbulb"></i> Analysis Summary</h3>
+                        <p id="res-summary"></p>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="results-column">
+                            <h3>Suggested Career Paths</h3>
+                            <div id="res-careers" class="cards-container"></div>
+                        </div>
+                        
+                        <div class="results-column">
+                            <h3>Recommended Universities</h3>
+                            <div id="res-universities" class="cards-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="results-column">
+                            <h3>Scholarships</h3>
+                            <div id="res-scholarships" class="cards-container"></div>
+                        </div>
+                        
+                        <div class="results-column">
+                            <h3>Free Courses to Start</h3>
+                            <div id="res-courses" class="cards-container"></div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
